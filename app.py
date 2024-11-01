@@ -9,3 +9,7 @@ from flask_migrate import Migrate
 db.init_app(app)
 migrate = Migrate(app, db)
 from models import Usuario, Pizza, Pedido
+from modulos.usuarios.usuarios import bp_usuario
+from modulos.pizza.pizza import bp_pizza
+app.register_blueprint(bp_usuario, url_prefix='/usuarios')
+app.register_blueprint(bp_pizza, url_prefix='/pizza')

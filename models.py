@@ -7,8 +7,14 @@ class Usuario(db.Model):
     email = db.Column(db.String(100))
     senha = db.Column(db.String(200))
 
+    def __init__(self, nome, email, senha):
+        self.nome = nome
+        self.email = email
+        self.senha = senha
+
     def __repr__(self):
         return '<Usuario {}>'.format(self.nome)
+
 
 
 class Pizza(db.Model):
@@ -16,12 +22,12 @@ class Pizza(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     sabor = db.Column(db.String(100))
     ingredientes = db.Column(db.String(100))
-    preço = db.Column(db.Float)
+    preco = db.Column(db.Float)
 
-    def __init__(self, sabor, ingredientes, preço):
+    def __init__(self, sabor, ingredientes, preco):
         self.sabor = sabor
         self.ingredientes = ingredientes
-        self.preço = preço
+        self.preco = preco
 
     def __repr__(self):
         return '<Pizza {}>'.format(self.sabor)
